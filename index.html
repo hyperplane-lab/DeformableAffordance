@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>Learning Foresightful Dense Visual Affordance for Deformable Object Manipulation</title>
+<link rel="SHORTCUT ICON" href="favicon.ico"/>
+<link href='./css/paperstyle.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="pageTitle">
+    Learning Foresightful Dense Visual Affordance <br> for Deformable Object Manipulation
+  <br>
+  <br>
+  <span class = "Authors">
+      <a href="https://warshallrho.github.io/" target="_blank">Ruihai Wu<sup>1*</sup> &nbsp; &nbsp;
+      <a href="https://tritiumr.github.io/" target="_blank">Chuanrui Ning</a><sup>1*</sup> &nbsp; &nbsp;
+      <a href="https://zsdonghao.github.io/" target="_blank">Hao Dong</a><sup>1</sup> &nbsp; &nbsp;<br>
+      <i>(*: indicates joint first authors, order determined by coin flip)</i><br><br>
+      <sup>1</sup> Peking University </a> &nbsp;
+  </span>
+  </div>
+<br>
+<div class = "material">
+        <a href="https://arxiv.org/abs/2303.11057" target="_blank">ArXiv Preprint 2023</a>
+</div>
+<br>
+<br>
+<div class = "material">
+        <a href="https://arxiv.org/pdf/2303.11057.pdf" target="_blank">[Paper]</a> &nbsp; &nbsp;
+        <a target="_blank">[Code]</a> &nbsp; &nbsp;
+        <!-- <a href="https://github.com/warshallrho/VAT-Mart" target="_blank">[Code]</a> -->
+        <a href="paper.bib" target="_blank">[BibTex]</a> &nbsp; &nbsp;
+</div>
+
+<div class = "abstractTitle">
+  Abstract
+</div>
+<p class = "abstractText">
+    Understanding and manipulating deformable objects (e.g., ropes and fabrics) is an essential yet challenging task with broad applications. Difficulties come from complex states and dynamics, diverse configurations and high-dimensional action space of deformable objects. Besides, the manipulation tasks usually require multiple steps to accomplish, and greedy policies may easily lead to local optimal states. Existing studies usually tackle this problem using reinforcement learning or imitating expert demonstrations, with limitations in modeling complex states or requiring hand-crafted expert policies. In this paper, we study deformable object manipulation using dense visual affordance, with generalization towards diverse states, and propose a novel kind of foresightful dense affordance, which avoids local optima by estimating states' values for long-term manipulation. We propose a framework for learning this representation, with novel designs such as multi-stage stable learning and efficient self-supervised data collection without experts. Experiments demonstrate the superiority of our proposed foresightful dense affordance.
+</p>
+
+<br>
+<div class="abstractTitle">
+    Video Presentation
+</div>
+<br>
+<center>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/DiZ9aXjK_PU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+<br>
+<div class="abstractTitle">
+    Real-world Manipulation
+</div>
+<br>
+<center>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/DiZ9aXjK_PU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+<br>
+<br>
+<br>
+
+<div class="abstractTitle">
+    Deformable Object Manipulation
+</div>
+  <img class="bannerImage" src="./images/teaser.png" ,="" width="600"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 1.
+        Deformable Object Manipulation has many difficulties. 1) It requires multiple steps to complete. 2) Most actions can
+        hardly facilitate tasks, for the exceptionally complex states and
+        dynamics. 3) Many local optimal states are temporarily closer to
+        the target, but making following actions harder to coordinate for
+        the whole task. We propose to learn Foresightful Dense Visual
+        Affordance aware of future actions to avoid local optima for deformable object manipulation, with real-world implementations.
+  </p></td></tr></tbody></table>
+
+<div class="abstractTitle">
+    Our Proposed Multi-stage Affordance Learning Framework
+</div>
+  <img class="bannerImage" src="./images/framework.png" ,="" width="600"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 2.
+        Our proposed framework learns dense picking and placing affordance for deformable object manipulation (e.g., Unfolding Cloth). We collect multi-stage interaction data efficiently (Left) and learn proposed affordance stably in a multi-stage schema (Right) in the reversed task accomplishment order, from states close to the target to complex states.
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/affordance.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 3.
+        Learning placing and picking affordance with state
+        ‘value’s for the future. Left to Right: The bottom black arrow
+        indicates the manipulation (inference) order. Right to Left: Arrow flows show dependencies among placing affordance, picking
+        affordance and ‘value’s. Given observation o, we select 3 picking
+        points p1 p2 p3, and show how to supervise corresponding placing
+        affordance Aplace
+        o|p1 Aplace o|p2 Aplace o|p3 , and how to supervise Apick o on
+        p1 p2 p3 using computed corresponding placing affordance.
+  </p></td></tr></tbody></table>
+
+  
+<div class="abstractTitle">
+    Qualitative Results
+</div>
+  <img class="bannerImage" src="./images/traj.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 4.
+        Example action sequences for cable-ring, cable-ringnotarget, SpreadCloth and RopeConfiguration. White point denotes picking and black point denotes placing.
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/vis_aff.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 5.
+        Picking and placing affordance. Each row contains two (picking affordance, observation with ppick, placing affordance) tuples for a task. ppick is selected by picking affordance. Higher color temperature means higher affordance.
+
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/vis_value.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 6.
+        Visualization of ‘value’ shows that some states with closer distances to the target (e.g., larger area) may not have higher ‘value’, as these states are hard for future actions to fulfill the task.
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/cmp_value.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 7.
+        Placing affordance trained using ‘value’ supervision (red) and only using the greedy direct distance (blue).
+  </p></td></tr></tbody></table>
+  <img class="bannerImage" src="./images/real.png" ,="" width="800"><br>
+  <table width="800" align="center"><tbody><tr><td><p class="figureTitleText">
+        Figure 8.
+        Examples of real-world manipulation trajectories guided by picking and placing affordance.
+  </p></td></tr></tbody></table>
+
+
+<!-- <p></p>  -->
+
+
+
+<br>
+<br>
+
+
+<div class = "abstractTitle">
+  Citation
+</div>
+
+<!-- <div class="row" style="margin-top: 1em">
+<div class="12u$ 1u$(xsmall)">   -->
+<div class = "myBibTex">
+  <pre style="background-color: #EBEBEB;">
+@article{wu2023learning,
+  title={Learning Foresightful Dense Visual Affordance for Deformable Object Manipulation},
+  author={Wu, Ruihai and Ning, Chuanruo and Dong, Hao},
+  journal={arXiv preprint arXiv:2303.11057},
+  year={2023}
+}
+  </pre>
+</div>
+<!-- </div> -->
+
+
+<br>
+<br>
+
+
+<div class = "abstractTitle">
+  Contact
+</div>
+<p class = "abstractText">
+  If you have any questions, please feel free to contact <a href="https://warshallrho.github.io/" target="_blank">Ruihai Wu</a> at wuruihai_at_pku_edu_cn and <a href="https://tritiumr.github.io/" target="_blank">Chuanruo Ning</a> at chuanruo_at_pku_edu_cn.
+</p>
+
+
+
+<br>
+<br>
+
+
+</body></html>
